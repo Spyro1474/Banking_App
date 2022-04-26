@@ -1,9 +1,9 @@
-package Revature.Banking_App;
+package MODEL;
 
-public class Savings extends Account{
-	private static String accountType = "Savings";
-
-	Savings(double initialDeposit) {
+public class Checking extends Account{
+	private static String accountType = "Checking";
+	
+	Checking(double initialDeposit) {
 		super();
 		this.setBalance(initialDeposit);
 	}
@@ -14,5 +14,7 @@ public class Savings extends Account{
 				"AccountNumber: " +this.getAccountNumber() + "\n" +
 				"Balance: " + this.getBalance() + "\n";
 				
+				
 	}
+
 }

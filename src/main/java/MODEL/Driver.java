@@ -1,4 +1,4 @@
-package Revature.Banking_App;
+package MODEL;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -86,7 +86,7 @@ public class Driver {
 			System.out.println("no customers at your bank");
 			return -1;
 		}
-		System.out.println("Please Select your Account You Would Like to deposit into: ");
+		System.out.println("Please Select The Account : ");
 		for(int i = 0; i < customers.size(); i++) {
 			System.out.println((i+1) + ") " + customers.get(i).basicInfo());
 		}
@@ -114,7 +114,7 @@ public class Driver {
 				valid = true;
 			}
 			else {
-				System.out.println("invalid input please choose checkings or savings");
+				System.out.println("INVALID INPUT Please enter an Account Type(Checking/Savings");
 			}
 		}
 		System.out.println("Please enter Username");
@@ -138,9 +138,9 @@ public class Driver {
 				} else {
 					valid = true;
 				}
-			} else if(accountType.equalsIgnoreCase("checking")) {
+			} else if(accountType.equalsIgnoreCase("savings")) {
 				if(initialDeposit <= 1) {
-					System.out.println("minimum $1 deposit");
+					System.out.println("Minimum $1 deposit");
 				} else {
 					valid = true;
 				}

@@ -1,4 +1,4 @@
-package Revature.Banking_App;
+package MODEL;
 
 import java.util.ArrayList;
 
