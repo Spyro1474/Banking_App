@@ -3,6 +3,9 @@ package MODEL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import DAO.CustomerDAO;
+import DAO.DAOInterface;
+
 public class Driver {
 	Scanner scan = new Scanner(System.in);
 	Bank bank = new Bank();
@@ -11,6 +14,12 @@ public class Driver {
 	public static void main(String[] args) {
 		Driver driver = new Driver();
 		driver.runMenu();
+		String username;
+		String passcode;
+		String accountType;
+		boolean employee;
+		DAOInterface customer = new CustomerDAO();
+
 	}
 	public void runMenu() {
 		printHeader();
@@ -104,7 +113,8 @@ public class Driver {
 		return account;
 	}
 	private void createAnAccount() {
-		String userName, passWord, phoneNum, accountType = "";
+		String userName, passWord, phoneNum, accountType = "", emplloyee;
+		//CustomerDAO.createAnAccount(userName, passWord, phoneNum, accountType, employee);
 		double initialDeposit = 0;
 		boolean valid = false;
 		while(!valid) {
