@@ -18,6 +18,8 @@ public class Driver {
 		String accountType;
 		boolean employee;
 		DAOInterface customer = new CustomerDAO();
+		
+		
 
 	}
 	public void runMenu() {
