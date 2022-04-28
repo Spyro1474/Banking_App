@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import DAO.CustomerDAO;
 import DAO.DAOInterface;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Driver {
 	Scanner scan = new Scanner(System.in);
 	Bank bank = new Bank();
 	boolean exit;
+	private static final Logger logger = LogManager.getLogger(Driver.class);
 	
 	public static void main(String[] args) {
+		
 		Driver driver = new Driver();
 		driver.runMenu();
 		String username;

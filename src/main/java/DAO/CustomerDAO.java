@@ -81,9 +81,25 @@ public class CustomerDAO implements DAOInterface{
 		return false;
 	} // end checkUsername()
 
-	public Customer get(String userName) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public static void getAccountNum(String userName) {
+		try {
+			String query = "SELECT * FROM BANK " +
+							"WHERE username = ?;";
+			PreparedStatement st = ConnectionManager.getConnection()
+					.prepareStatement(query);
+			
+			st.setString(1, userName);
+			
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()) {
+			}return;
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void delete(Customer customer) {
