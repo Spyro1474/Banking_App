@@ -1,0 +1,8 @@
+2022-04-28 16:25:32.223 [main] DEBUG MODEL.Driver - We've just greeted the user!
+2022-04-28 16:25:32.225 [main] INFO  MODEL.Driver - We've just greeted the user!
+2022-04-28 16:25:32.226 [main] WARN  MODEL.Driver - We've just greeted the user!
+2022-04-28 16:25:32.226 [main] ERROR MODEL.Driver - We've just greeted the user!
+2022-04-28 16:25:32.226 [main] FATAL MODEL.Driver - We've just greeted the user!
+2022-04-28 16:44:10.063 [main] INFO  MODEL.Driver - user deposited into their account: 0
+2022-04-28 16:44:55.979 [main] INFO  MODEL.Driver - user deposited into their account: 0
+2022-04-28 16:45:44.153 [main] INFO  MODEL.Driver - user deposited into their account: 0

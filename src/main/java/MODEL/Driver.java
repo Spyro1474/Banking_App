@@ -92,8 +92,10 @@ public class Driver {
 			amount = 0;
 		}
 		bank.getCustomer(account).getAccount().deposit(amount);
-		}
+		logger.info("user deposited into their account: " + account);
+		} 
 	}
+     
 	private int selectAccount() {
 		ArrayList<Customer> customers = bank.getCustomers();
 		if(customers.size() <= 0) {
