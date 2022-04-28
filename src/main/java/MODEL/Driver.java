@@ -2,7 +2,6 @@ package MODEL;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import DAO.CustomerDAO;
 import DAO.DAOInterface;
 
@@ -113,8 +112,8 @@ public class Driver {
 		return account;
 	}
 	private void createAnAccount() {
-		String userName, passWord, phoneNum, accountType = "", emplloyee;
-		//CustomerDAO.createAnAccount(userName, passWord, phoneNum, accountType, employee);
+		String userName, passWord, phoneNum, accountType = "";
+		boolean employee = false;
 		double initialDeposit = 0;
 		boolean valid = false;
 		while(!valid) {
@@ -134,6 +133,7 @@ public class Driver {
 		System.out.println("Please enter Your Phone Number");
 		phoneNum = scan.nextLine();
 		valid = false;
+		CustomerDAO.createAnAccount(userName, passWord, phoneNum, accountType, employee);
 		while(!valid) {
 			System.out.println("Please enter an initial deposit");
 			try {

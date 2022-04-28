@@ -9,9 +9,9 @@ import MODEL.Customer;
 public class CustomerDAO implements DAOInterface{
 	
 	
-	public static void createAnAccount(String userName, String passWord, String phoneNum, String accountType boolean employee) {
+	public static void createAnAccount(String userName, String passWord, String phoneNum, String accountType, boolean employee) {
 		try {
-			if(checkUsername(username)) {
+			if(checkUsername(userName)) {
 				String command = "INSERT INTO Users " +
 								 "VALUES (?, ?, ?, ?);";
 				PreparedStatement st = ConnectionManager.getConnection()
@@ -58,7 +58,7 @@ public class CustomerDAO implements DAOInterface{
 		
 	}
 	
-	public boolean checkUsername(String userName) {
+	public static boolean checkUsername(String userName) {
 		try {
 			String query = "SELECT * FROM Users " +
 						   "WHERE username = ?;";
