@@ -22,17 +22,19 @@ public class CustomerDAO implements DAOInterface{
 				st.setBoolean(4, employee);
 				st.execute();
 				String command2 = "INSERT INTO Bank " +
-						 			"VALUES (?, ?, ?);";
+						 			"VALUES (?, ?, ?) returning accountNum;";
 		PreparedStatement st2 = ConnectionManager.getConnection()
 											    .prepareStatement(command2);
 		st2.setString(1, userName);
 		st2.setDouble(2, initialDeposit);
 		st2.setString(3, accountType);
 		st2.execute();
+		
+		
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 		
 	@Override

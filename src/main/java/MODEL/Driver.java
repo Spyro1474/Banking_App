@@ -92,7 +92,7 @@ public class Driver {
 			amount = 0;
 		}
 		bank.getCustomer(account).getAccount().deposit(amount);
-		logger.info("user deposited into their account: " + account);
+		logger.info("user deposited into their account");
 		} 
 	}
      
@@ -149,6 +149,7 @@ public class Driver {
 			catch (NumberFormatException e) {
 				System.out.println("Deposit must be a number");
 			} CustomerDAO.createAnAccount(userName, passWord, phoneNum, accountType, employee, initialDeposit);
+			
 			if(accountType.equalsIgnoreCase("checking")) {
 				if(initialDeposit <= 1) {
 					System.out.println("minimum $1 deposit");
