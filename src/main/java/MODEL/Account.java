@@ -4,7 +4,7 @@ public class Account {
 	
 	private Double balance;
 	private int accountNumber;
-	private static int numberOfAccounts = 1000;
+	private static int numberOfAccounts = 1;
 	
 	Account() {
 		accountNumber = numberOfAccounts++;
@@ -29,7 +29,6 @@ public class Account {
 		System.out.println("you now have a balance of " + balance);
 	}
 	public void deposit(double amount) {
-		amount = amount + amount;
 		balance += amount;
 		System.out.println("you have deposited " + amount + " dollars");
 		System.out.println("you now have a balance of " + balance);
