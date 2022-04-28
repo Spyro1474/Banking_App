@@ -9,7 +9,7 @@ import MODEL.Customer;
 public class CustomerDAO implements DAOInterface{
 	
 	
-	public static void createAnAccount(String userName, String passWord, String phoneNum, String accountType, boolean employee) {
+	public static void createAnAccount(String userName, String passWord, String phoneNum, String accountType, boolean employee, double initialDeposit) {
 		try {
 			if(checkUsername(userName)) {
 				String command = "INSERT INTO Users " +
@@ -26,7 +26,7 @@ public class CustomerDAO implements DAOInterface{
 		PreparedStatement st2 = ConnectionManager.getConnection()
 											    .prepareStatement(command2);
 		st2.setString(1, userName);
-		st2.setDouble(2, 0);
+		st2.setDouble(2, initialDeposit);
 		st2.execute();
 			}
 		} catch(SQLException e) {

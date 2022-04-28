@@ -133,7 +133,6 @@ public class Driver {
 		System.out.println("Please enter Your Phone Number");
 		phoneNum = scan.nextLine();
 		valid = false;
-		CustomerDAO.createAnAccount(userName, passWord, phoneNum, accountType, employee);
 		while(!valid) {
 			System.out.println("Please enter an initial deposit");
 			try {
@@ -141,7 +140,7 @@ public class Driver {
 			}
 			catch (NumberFormatException e) {
 				System.out.println("Deposit must be a number");
-			}
+			} CustomerDAO.createAnAccount(userName, passWord, phoneNum, accountType, employee, initialDeposit);
 			if(accountType.equalsIgnoreCase("checking")) {
 				if(initialDeposit <= 1) {
 					System.out.println("minimum $1 deposit");
