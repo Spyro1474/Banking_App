@@ -2,27 +2,35 @@ package MODEL;
 
 public class Customer {
 
-	private String userName;
-	private String passWord;
-	private String phoneNum;
-	private Account account;
+	public String userName;
+	public String passWord;
+	public String phoneNum;
+	public double balance;
+	public String accountType;
+	public int accountNum;
+	public Account account;
 
-	public Customer(String userName, String passWord, String phoneNum, Account account) {
+	public Customer(String userName, String passWord, String phoneNum, double balance, String accountType, int accountNum, Account account) {
 		this.userName = userName;
 		this.passWord = passWord;
 		this.phoneNum = phoneNum;
+		this.balance = balance;
+		this.accountType = accountType;
+		this.accountNum = accountNum;
 		this.account = account;
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		return " Customer Information \n " +
-				" Username: " + userName + "\n" +
-				" Password: " + passWord + "\n" +
-				" Phone Number: " + phoneNum + "\n" +
-				account;
+		return "Customer [userName=" + userName + ", passWord=" + passWord + ", phoneNum=" + phoneNum + ", balance="
+				+ balance + ", accountType=" + accountType + ", accountNum=" + accountNum + ", account=" + account
+				+ "]";
 	}
-	
+
+
+
 	Account getAccount() {
 		return account;
 	}

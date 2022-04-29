@@ -2,11 +2,11 @@ package MODEL;
 
 public class Account {
 	
-	private Double balance;
-	private int accountNumber;
-	private static int numberOfAccounts = 1;
+	public Double balance;
+	public int accountNumber;
+	public static int numberOfAccounts = 1;
 	
-	Account() {
+	public Account() {
 		accountNumber = numberOfAccounts++;
 	}
 	

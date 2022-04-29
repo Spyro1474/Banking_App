@@ -84,7 +84,7 @@ public class CustomerDAO implements DAOInterface{
 	} // end checkUsername()
 
 	
-	public static int getAccountNum(String userName) {
+	public static int getAccountInfo(String userName) {
 		try {
 			String query = "SELECT * FROM BANK " +
 							"WHERE username = ?;";
@@ -97,9 +97,9 @@ public class CustomerDAO implements DAOInterface{
 			
 			if(rs.next()) {
 				
-			int accountNum = rs.getInt("accountNum");
+			int accountInfo = rs.getInt("accountNum");
 			
-			return accountNum;
+			return accountInfo;
 			}
 			
 		} catch(SQLException e) {
