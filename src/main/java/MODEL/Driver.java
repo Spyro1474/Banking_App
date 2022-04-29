@@ -2,8 +2,6 @@ package MODEL;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import DAO.BankDAO;
 import DAO.CustomerDAO;
 import DAO.DAOInterface;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +10,6 @@ import org.apache.logging.log4j.Logger;
 public class Driver {
 	Scanner scan = new Scanner(System.in);
 	Bank bank = new Bank();
-	BankDAO bankDAO = new BankDAO();
 	boolean exit;
 	private static final Logger logger = LogManager.getLogger(Driver.class);
 	
@@ -67,8 +64,7 @@ public class Driver {
 		}
 		} catch (NumberFormatException e) {
 			account = 0;
-		} 
-		logger.info("user viewed their accounts");
+		}
 	}
 	private void makeAwithdrawl() {
 		int account = selectAccount();
@@ -82,7 +78,7 @@ public class Driver {
 			amount = 0;
 		}
 		bank.getCustomer(account).getAccount().withdraw(amount);
-		} logger.info("user withdrew from their account");
+		}
 	}
 	private void makeADeposit() {
 		int account = selectAccount();
@@ -167,7 +163,7 @@ public class Driver {
 					valid = true;
 				}
 			}
-		} 
+		}
 		Account account;
 		if(accountType.equalsIgnoreCase("checking")) {
 			account = new Checking(initialDeposit);
@@ -175,10 +171,9 @@ public class Driver {
 		} else {
 			account = new Savings(initialDeposit);
 		}
-		Customer customer = new Customer(userName, passWord, phoneNum, initialDeposit, accountType, 0, account);
+		Customer customer = new Customer(userName, passWord, phoneNum, account);
 		bank.addCustomer(customer);
-		logger.info("user created an account");
-	} 
+	}
 	private int getInput() {
 		int choice = -1;
 		do {
