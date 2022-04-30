@@ -24,6 +24,7 @@ public class AccountDAO implements DAOInterface{
 			ResultSet rs = st.executeQuery();
 			
 			if(rs.next()) {
+				//String userName = rs.getString("username");
 				String passWord = rs.getString("passcode");
 				String phoneNum = rs.getString("phoneNum");
 				boolean empoloyee = rs.getBoolean("employee");

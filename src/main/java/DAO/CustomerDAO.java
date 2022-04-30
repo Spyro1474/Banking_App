@@ -54,7 +54,7 @@ public class CustomerDAO implements DAOInterface{
 			
 			st.executeQuery();
 			
-			ResultSet rs = st.executeQuery();
+			ResultSet rs = st.getGeneratedKeys();
 			if(rs.next()) {
 				
 			}
@@ -147,6 +147,7 @@ public class CustomerDAO implements DAOInterface{
 			st.setInt(2, accountNum);
 			st.setDouble(1, balance);
 			st.executeUpdate();
+			
 			
 			ResultSet rs = st.getGeneratedKeys();
 			if(rs.next()) {

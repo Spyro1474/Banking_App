@@ -44,7 +44,6 @@ public class Driver {
 				BankDAO bankDAO = new BankDAO();
 				bankDAO.ExitProgram();
 				logger.info("DATABASE HAS BEEN DROPPED AND RE-INITIALIZED");
-				System.exit(0);
 				break;
 			case 1:
 				createAnAccount();
@@ -162,6 +161,7 @@ public class Driver {
 		boolean employee = false;
 		boolean valid = false;
 		while(!valid) {
+			try {
 			Scanner scan = new Scanner(System.in);
 			System.out.println("Are You An Employee true/false");
 			employee = scan.nextBoolean();
@@ -169,7 +169,10 @@ public class Driver {
 				System.out.println("you are an employee");
 			} else {
 				System.out.println("you are NOT an employee");
-				} valid = true;
+				}  
+				} catch (Exception e) {
+					e.printStackTrace();
+			valid = true;
 			}
 			valid = false;
 			while(!valid) {
@@ -177,11 +180,11 @@ public class Driver {
 			accountType = scan.nextLine();
 			if (accountType.equalsIgnoreCase("checking") || accountType.equalsIgnoreCase("savings")) {
 				valid = true;
-			}
-			else {
+			} else {
 				System.out.println("INVALID INPUT Please enter an Account Type(Checking/Savings");
 			}
 		}
+	
 		System.out.println("Please Enter Username");
 		userName = scan.nextLine();
 		System.out.println("Please Enter Password");
@@ -222,6 +225,7 @@ public class Driver {
 		Customer customer = new Customer(userName, passWord, phoneNum, account);
 		bank.addCustomer(customer);
 		logger.info("user created an account");
+	}
 	}
 	private int getInput() {
 		int choice = -1;
