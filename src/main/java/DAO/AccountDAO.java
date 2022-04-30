@@ -9,9 +9,9 @@ import MODEL.Account;
 import MODEL.Checking;
 import MODEL.Savings;
 
-public abstract class AccountDAO implements DAOInterface{
+public class AccountDAO implements DAOInterface{
 	
-	Account getAccount(String userName) {
+	public static Account getAccount(String userName) {
 		Account account = new Account();
 		try {
 			String ac = "SELECT * FROM users FULL JOIN bank ON " + 
@@ -24,7 +24,7 @@ public abstract class AccountDAO implements DAOInterface{
 			ResultSet rs = st.executeQuery();
 			
 			if(rs.next()) {
-				String passWord = rs.getString("password");
+				String passWord = rs.getString("passcode");
 				String phoneNum = rs.getString("phoneNum");
 				boolean empoloyee = rs.getBoolean("employee");
 				double balance = rs.getDouble("balance");

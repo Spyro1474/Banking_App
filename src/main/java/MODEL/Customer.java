@@ -1,17 +1,24 @@
 package MODEL;
 
+import DAO.AccountDAO;
+import DAO.CustomerDAO;
+
 public class Customer {
 
 	private String userName;
 	private String passWord;
 	private String phoneNum;
-	private Account account;
+	private Account accountNum;
 
-	public Customer(String userName, String passWord, String phoneNum, Account account) {
+	public Customer(String userName, String passWord, String phoneNum, Account accountNum) {
+		AccountDAO.getAccount(userName);
+		
+		
+		
 		this.userName = userName;
 		this.passWord = passWord;
 		this.phoneNum = phoneNum;
-		this.account = account;
+		this.accountNum = accountNum;
 	}
 	
 	@Override
@@ -20,16 +27,16 @@ public class Customer {
 				" Username: " + userName + "\n" +
 				" Password: " + passWord + "\n" +
 				" Phone Number: " + phoneNum + "\n" +
-				account;
+				accountNum;
 	}
 	
 	Account getAccount() {
-		return account;
+		
+		return accountNum;
 	}
 	
 	public String basicInfo() {
 		return 	" Username: " + userName + "\n" +
-				"   Phone Number: " + phoneNum + "\n" +
-				"   Account Number: " + account.getAccountNumber();
+				"   Phone Number: " + phoneNum;
 	}
 }

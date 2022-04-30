@@ -43,23 +43,26 @@ public class CustomerDAO implements DAOInterface{
 			e.printStackTrace();
 		} 
 	}
-	public static boolean getAccountNum(String userName) {
-		boolean success = false;
+	public static void getAccountNum(String userName) {
+		
 		try {
 			String query = "SELECT accountNum FROM bank WHERE bank.username = ?";
 			PreparedStatement st = ConnectionManager.getConnection()
-					.prepareStatement(query);
+					.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			
 			st.setString(1, userName);
 			
-			st.executeUpdate();
-			success = true;
+			st.executeQuery();
 			
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				
+			}
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
-		} // end try-catch
-		return success;
+		}
+		
 	} 
 		
 	public boolean checkValidLogin(String userName, String passWord) {
