@@ -8,6 +8,10 @@ public class Checking extends Account{
 		this.setBalance(initialDeposit);
 	}
 
+	public Checking(int accountNum, double balance) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "AccountType: "+ accountType + "Account\n" +

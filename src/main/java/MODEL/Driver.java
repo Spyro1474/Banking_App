@@ -44,17 +44,44 @@ public class Driver {
 				createAnAccount();
 				break;
 			case 2:
-				makeADeposit();
+				logIn();
 				break;
 			case 3:
-				makeAwithdrawl();
+				makeADeposit();
 				break;
 			case 4:
+				makeAwithdrawl();
+				break;
+			case 5:
+				transferFunds();
+				break;
+			case 6:
 				listBalances();
 				break;
 				default:
 					System.out.println("Unkown Error");
 		}
+	}
+	private void transferFunds() {
+		int account1 = selectAccount();
+		int account2 = selectAccount();
+		if(account1 >= 0 || account2 >= 0) {
+			System.out.println("how much would you like to transfer?");
+			double amount = 0;
+			try {
+				amount = Double.parseDouble(scan.nextLine());
+			}
+			catch (NumberFormatException e) {
+				amount = 0;
+			}
+			bank.getCustomer(account1).getAccount().withdraw(amount);
+			bank.getCustomer(account2).getAccount().deposit(amount);
+			logger.info("user transfered from their account");
+		}
+	}
+	private void logIn() {
+		int account = selectAccount();
+		
 	}
 	private void listBalances() {
 		int account = selectAccount();
@@ -78,6 +105,7 @@ public class Driver {
 			amount = 0;
 		}
 		bank.getCustomer(account).getAccount().withdraw(amount);
+		logger.info("user withdrew from their account");
 		}
 	}
 	private void makeADeposit() {
@@ -183,18 +211,20 @@ public class Driver {
 		} catch (NumberFormatException e) {
 			System.out.println("invalid selection");
 		}
-		if(choice < 0 || choice > 4) {
+		if(choice < 0 || choice > 6) {
 			System.out.println("choice outside of range");
 		}
-	} while (choice < 0 || choice > 4);
+	} while (choice < 0 || choice > 6);
 		return choice; 
 }
 	private void printMenu() {
 		System.out.println("Please make a selection");
 		System.out.println("1. Create an Account");
-		System.out.println("2. Make a deposit");
-		System.out.println("3. Make a Withdrawl");
-		System.out.println("4. list account balance");
+		System.out.println("2. Log Into An Existing Account");
+		System.out.println("3. Make a deposit");
+		System.out.println("4. Make a Withdrawl");
+		System.out.println("5. Transfer Funds");
+		System.out.println("6. list account balance");
 		System.out.println("0. Exit");
 	}
 	private void printHeader() {
