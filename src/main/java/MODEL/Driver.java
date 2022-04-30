@@ -111,7 +111,7 @@ public class Driver {
 	private void makeADeposit() {
 		int account = selectAccount();
 		if(account >=0) {
-		System.out.println("how much would you like to deposit?");
+		System.out.println("How Much Would You Like To Deposit?");
 		double amount = 0;
 		try {
 			amount = Double.parseDouble(scan.nextLine());
@@ -127,12 +127,12 @@ public class Driver {
 	private int selectAccount() {
 		ArrayList<Customer> customers = bank.getCustomers();
 		if(customers.size() <= 0) {
-			System.out.println("no customers at your bank");
+			System.out.println("No Customers At Your Bank");
 			return -1;
 		}
 		System.out.println("Please Select The Account : ");
 		for(int i = 0; i < customers.size(); i++) {
-			System.out.println((i+1) + ") " + customers.get(i).basicInfo());
+			System.out.println((i+1) + ")" + customers.get(i).basicInfo());
 		}
 		int account = 0;
 		try {
@@ -142,17 +142,28 @@ public class Driver {
 			account = -1;
 		}
 		if(account > customers.size()) {
-			System.out.println("invalid account selected");
+			System.out.println("Invalid Account Selected");
 			account = -1;
 		}
 		return account;
 	}
 	private void createAnAccount() {
 		String userName, passWord, phoneNum, accountType = "";
-		boolean employee = false;
 		double initialDeposit = 0;
+		boolean employee = false;
 		boolean valid = false;
 		while(!valid) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Are You An Employee true/false");
+			employee = scan.nextBoolean();
+			if (employee == true) {
+				System.out.println("you are an employee");
+			} else {
+				System.out.println("you are NOT an employee");
+				} valid = true;
+			}
+			valid = false;
+			while(!valid) {
 			System.out.println("Please enter an Account Type(Checking/Savings");
 			accountType = scan.nextLine();
 			if (accountType.equalsIgnoreCase("checking") || accountType.equalsIgnoreCase("savings")) {
@@ -162,15 +173,15 @@ public class Driver {
 				System.out.println("INVALID INPUT Please enter an Account Type(Checking/Savings");
 			}
 		}
-		System.out.println("Please enter Username");
+		System.out.println("Please Enter Username");
 		userName = scan.nextLine();
-		System.out.println("Please enter Password");
+		System.out.println("Please Enter Password");
 		passWord = scan.nextLine();
-		System.out.println("Please enter Your Phone Number");
+		System.out.println("Please Enter Your Phone Number");
 		phoneNum = scan.nextLine();
 		valid = false;
 		while(!valid) {
-			System.out.println("Please enter an initial deposit");
+			System.out.println("Please Enter An Initial Deposit");
 			try {
 				initialDeposit = Double.parseDouble(scan.nextLine());
 			}
@@ -179,14 +190,14 @@ public class Driver {
 			} CustomerDAO.createAnAccount(userName, passWord, phoneNum, accountType, employee, initialDeposit);
 			
 			if(accountType.equalsIgnoreCase("checking")) {
-				if(initialDeposit <= 1) {
-					System.out.println("minimum $1 deposit");
+				if(initialDeposit <= 0) {
+					System.out.println("Minimum $1 Deposit");
 				} else {
 					valid = true;
 				}
 			} else if(accountType.equalsIgnoreCase("savings")) {
-				if(initialDeposit <= 1) {
-					System.out.println("Minimum $1 deposit");
+				if(initialDeposit <= 0) {
+					System.out.println("Minimum $1 Deposit");
 				} else {
 					valid = true;
 				}
@@ -201,33 +212,34 @@ public class Driver {
 		}
 		Customer customer = new Customer(userName, passWord, phoneNum, account);
 		bank.addCustomer(customer);
+		logger.info("user created an account");
 	}
 	private int getInput() {
 		int choice = -1;
 		do {
-			System.out.println("Enter Your Choice:");
+			System.out.println("\n" + "Enter Your Choice:");
 		try {
 			choice = Integer.parseInt(scan.nextLine());
 		} catch (NumberFormatException e) {
-			System.out.println("invalid selection");
+			System.out.println("Invalid Selection");
 		}
 		if(choice < 0 || choice > 6) {
-			System.out.println("choice outside of range");
+			System.out.println("Choice Outside Of Range");
 		}
 	} while (choice < 0 || choice > 6);
 		return choice; 
 }
 	private void printMenu() {
-		System.out.println("Please make a selection");
-		System.out.println("1. Create an Account");
-		System.out.println("2. Log Into An Existing Account");
-		System.out.println("3. Make a deposit");
-		System.out.println("4. Make a Withdrawl");
-		System.out.println("5. Transfer Funds");
-		System.out.println("6. list account balance");
-		System.out.println("0. Exit");
+		System.out.println("Please Make A Selection: " + "\n");
+		System.out.println("1. Create An Account: ");
+		System.out.println("2. Log Into An Existing Account: ");
+		System.out.println("3. Make A Deposit: ");
+		System.out.println("4. Make A Withdrawl: ");
+		System.out.println("5. Transfer Funds : ");
+		System.out.println("6. List Accounts: ");
+		System.out.println("0. Exit: ");
 	}
 	private void printHeader() {
-		System.out.println("Welcome to my bank");
+		System.out.println("Welcome To My Bank" + "\n");
 	}
 }

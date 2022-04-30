@@ -3,3 +3,11 @@
 2022-04-30 14:04:36.036 [main] INFO  MODEL.Driver - user deposited into their account
 2022-04-30 14:07:32.509 [main] INFO  MODEL.Driver - user deposited into their account
 2022-04-30 14:17:26.273 [main] INFO  MODEL.Driver - user transfered from their account
+2022-04-30 14:21:02.374 [main] INFO  MODEL.Driver - user transfered from their account
+2022-04-30 16:00:07.421 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 16:00:31.816 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 16:01:25.562 [main] INFO  MODEL.Driver - user deposited into their account
+2022-04-30 16:02:06.373 [main] INFO  MODEL.Driver - user transfered from their account
+2022-04-30 16:06:27.514 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 16:08:36.110 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 16:11:09.410 [main] INFO  MODEL.Driver - user created an account
