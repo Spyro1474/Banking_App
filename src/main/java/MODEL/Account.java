@@ -1,13 +1,15 @@
 package MODEL;
 
+import DAO.CustomerDAO;
+
 public class Account {
 	
 	private Double balance;
-	private int accountNumber;
+	private int accountNum;
 	private static int numberOfAccounts = 1;
 	
 	public Account() {
-		accountNumber = numberOfAccounts++;
+		accountNum = numberOfAccounts++;
 	}
 	
 	public Double getBalance() {
@@ -18,7 +20,7 @@ public class Account {
 	}
 	public int getAccountNumber() {
 		
-		return accountNumber;
+		return accountNum;
 	}
 	public static int getNumberOfAccounts() {
 		return numberOfAccounts;
@@ -28,10 +30,14 @@ public class Account {
 		balance -= amount;
 		System.out.println("you have withdrawn " + amount + " dollars");
 		System.out.println("you now have a balance of " + balance);
+		CustomerDAO customerDAO = new CustomerDAO();
+		customerDAO.updateAccount(balance, accountNum);
 	}
 	public void deposit(double amount) {
 		balance += amount;
 		System.out.println("you have deposited " + amount + " dollars");
 		System.out.println("you now have a balance of " + balance);
+		CustomerDAO customerDAO = new CustomerDAO();
+		customerDAO.updateAccount(balance, accountNum);
 	}
 }

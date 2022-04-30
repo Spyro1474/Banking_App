@@ -3,6 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import MODEL.Account;
 import MODEL.Checking;
@@ -16,7 +17,7 @@ public abstract class AccountDAO implements DAOInterface{
 			String ac = "SELECT * FROM users FULL JOIN bank ON " + 
 		"users.username = bank.username WHERE users.username = ?;";
 			PreparedStatement st = ConnectionManager.getConnection()
-					.prepareStatement(ac);
+					.prepareStatement(ac, Statement.RETURN_GENERATED_KEYS);
 			
 			st.setString(1, userName);
 			
@@ -29,7 +30,7 @@ public abstract class AccountDAO implements DAOInterface{
 				double balance = rs.getDouble("balance");
 				String accountType = rs.getString("accounttype");
 				int accountNum = rs.getInt("accountNum");
-				Account account;
+				//Account account;
 				if (accountType.equalsIgnoreCase("checking")) {
 					account = new Checking(accountNum, balance);
 				} else if (accountType.equalsIgnoreCase("savings")) {

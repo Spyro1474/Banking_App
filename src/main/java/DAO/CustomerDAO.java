@@ -43,7 +43,7 @@ public class CustomerDAO implements DAOInterface{
 			e.printStackTrace();
 		} 
 	}
-	public boolean checkValidAccountNum(String userName) {
+	public static boolean getAccountNum(String userName) {
 		boolean success = false;
 		try {
 			String query = "SELECT accountNum FROM bank WHERE bank.username = ?";
@@ -134,24 +134,28 @@ public class CustomerDAO implements DAOInterface{
 	} // end delete()
 		
 
-	public boolean updateAccount(int accountNum, double balance) {
-		boolean success = false;
+	public boolean updateAccount(double balance, int accountNum) {
 		try {
 			String update = "UPDATE bank SET balance = ? WHERE accountnum = ?;";
 			PreparedStatement st = ConnectionManager.getConnection()
-					.prepareStatement(update);
+					.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
+
 			
-			st.setDouble(1, balance);
 			st.setInt(2, accountNum);
+			st.setDouble(1, balance);
 			st.executeUpdate();
-			success = true;
 			
+			ResultSet rs = st.getGeneratedKeys();
+			if(rs.next()) {
+			
+			}
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} // end try-catch
-		
-		return success;
+		return true;
+
 	} 
 		
 }
+

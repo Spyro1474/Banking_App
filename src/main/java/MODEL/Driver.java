@@ -20,6 +20,8 @@ public class Driver {
 		String username;
 		String passcode;
 		String accountType;
+		int accountNum;
+		double balance;
 		boolean employee;
 		DAOInterface customer = new CustomerDAO();
 		
@@ -80,50 +82,50 @@ public class Driver {
 		}
 	}
 	private void logIn() {
-		int account = selectAccount();
+		int accountNum = selectAccount();
 		
 	}
 	private void listBalances() {
-		int account = selectAccount();
+		int accountNum = selectAccount();
 		try {
-		if(account >= 0) {
-			System.out.println(bank.getCustomer(account).getAccount());
+		if(accountNum >= 0) {
+			System.out.println(bank.getCustomer(accountNum).getAccount());
 		}
 		} catch (NumberFormatException e) {
-			account = 0;
+			accountNum = 0;
 		}
 	}
 	private void makeAwithdrawl() {
-		int account = selectAccount();
-		if(account >=0) {
+		int accountNum = selectAccount();
+		if(accountNum >=0) {
 		System.out.println("how much would you like to withdraw?");
-		double amount = 0;
+		double balance = 0;
 		try {
-			amount = Double.parseDouble(scan.nextLine());
+			balance = Double.parseDouble(scan.nextLine());
 		}
 		catch (NumberFormatException e) {
-			amount = 0;
-		}
-		bank.getCustomer(account).getAccount().withdraw(amount);
+			balance = 0;
+		} 
+		bank.getCustomer(accountNum).getAccount().withdraw(balance);
 		logger.info("user withdrew from their account");
+		
 		}
 	}
 	private void makeADeposit() {
-		int account = selectAccount();
-		if(account >=0) {
+		int accountNum = selectAccount();
+		if(accountNum >=0) {
 		System.out.println("How Much Would You Like To Deposit?");
-		double amount = 0;
+		double balance = 0;
 		try {
-			amount = Double.parseDouble(scan.nextLine());
+			balance = Double.parseDouble(scan.nextLine());
 		}
 		catch (NumberFormatException e) {
-			amount = 0;
+			balance = 0;
 		}
-		bank.getCustomer(account).getAccount().deposit(amount);
+		bank.getCustomer(accountNum).getAccount().deposit(balance);
 		logger.info("user deposited into their account");
 		} 
 	}
-     
 	private int selectAccount() {
 		ArrayList<Customer> customers = bank.getCustomers();
 		if(customers.size() <= 0) {
