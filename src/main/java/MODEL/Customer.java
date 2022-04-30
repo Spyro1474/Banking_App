@@ -29,7 +29,6 @@ public class Customer {
 	
 	public String basicInfo() {
 		return 	" Username: " + userName + "\n" +
-				"   Password: " + passWord + "\n" +
 				"   Phone Number: " + phoneNum + "\n" +
 				"   Account Number: " + account.getAccountNumber();
 	}

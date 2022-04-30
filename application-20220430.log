@@ -46,3 +46,17 @@
 2022-04-30 17:47:21.491 [main] INFO  MODEL.Driver - user withdrew from their account
 2022-04-30 17:48:39.742 [main] INFO  MODEL.Driver - user created an account
 2022-04-30 17:49:23.340 [main] INFO  MODEL.Driver - user transfered from their account
+2022-04-30 17:54:24.294 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 17:54:41.556 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 17:55:37.898 [main] INFO  MODEL.Driver - user transfered from their account
+2022-04-30 18:04:57.319 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED
+2022-04-30 18:08:48.580 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED
+2022-04-30 18:12:59.197 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED
+2022-04-30 18:13:24.309 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 18:13:45.231 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 18:15:02.728 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED
+2022-04-30 18:15:17.640 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 18:15:29.143 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 18:16:19.976 [main] INFO  MODEL.Driver - user created an account
+2022-04-30 18:17:05.351 [main] INFO  MODEL.Driver - user transfered from their account
+2022-04-30 18:19:04.987 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED

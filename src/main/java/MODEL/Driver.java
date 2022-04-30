@@ -2,6 +2,8 @@ package MODEL;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import DAO.BankDAO;
 import DAO.CustomerDAO;
 import DAO.DAOInterface;
 import org.apache.logging.log4j.LogManager;
@@ -39,7 +41,9 @@ public class Driver {
 	private void preformAction(int choice) {
 		switch(choice) {
 			case 0:
-				System.out.println("thank you for using our program");
+				BankDAO bankDAO = new BankDAO();
+				bankDAO.ExitProgram();
+				logger.info("DATABASE HAS BEEN DROPPED AND RE-INITIALIZED");
 				System.exit(0);
 				break;
 			case 1:
@@ -60,6 +64,9 @@ public class Driver {
 			case 6:
 				listBalances();
 				break;
+			case 9:
+				System.out.println("thank you for using our program");
+				System.exit(0);
 				default:
 					System.out.println("Unkown Error");
 		}
@@ -225,10 +232,10 @@ public class Driver {
 		} catch (NumberFormatException e) {
 			System.out.println("Invalid Selection");
 		}
-		if(choice < 0 || choice > 6) {
+		if(choice < 0 || choice > 10) {
 			System.out.println("Choice Outside Of Range");
 		}
-	} while (choice < 0 || choice > 6);
+	} while (choice < 0 || choice > 10);
 		return choice; 
 }
 	private void printMenu() {
@@ -239,7 +246,7 @@ public class Driver {
 		System.out.println("4. Make A Withdrawl: ");
 		System.out.println("5. Transfer Funds : ");
 		System.out.println("6. List Accounts: ");
-		System.out.println("0. Exit: ");
+		System.out.println("9. Exit: ");
 	}
 	private void printHeader() {
 		System.out.println("Welcome To My Bank" + "\n");

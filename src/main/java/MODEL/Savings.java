@@ -13,7 +13,7 @@ public class Savings extends Account{
 	}
 	@Override
 	public String toString() {
-		return "\nAccountType: "+ accountType + "Account\n" +
+		return "\nAccountType: "+ accountType + " Account\n" +
 				"AccountNumber: " +this.getAccountNumber() + "\n" +
 				"Balance: " + this.getBalance() + "\n";
 				
