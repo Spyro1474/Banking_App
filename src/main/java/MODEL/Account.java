@@ -1,5 +1,6 @@
 package MODEL;
 
+import DAO.AccountDAO;
 import DAO.CustomerDAO;
 
 public class Account {
@@ -19,7 +20,7 @@ public class Account {
 		this.balance = balance;
 	}
 	public int getAccountNumber() {
-		
+		CustomerDAO.getAccountNum(accountNum);
 		return accountNum;
 	}
 	public static int getNumberOfAccounts() {

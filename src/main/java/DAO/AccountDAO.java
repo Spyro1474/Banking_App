@@ -11,7 +11,7 @@ import MODEL.Savings;
 
 public class AccountDAO implements DAOInterface{
 	
-	public static Account getAccount(String userName) {
+	public static void getAccount(String userName) {
 		Account account = new Account();
 		try {
 			String ac = "SELECT * FROM users FULL JOIN bank ON " + 
@@ -30,7 +30,6 @@ public class AccountDAO implements DAOInterface{
 				double balance = rs.getDouble("balance");
 				String accountType = rs.getString("accounttype");
 				int accountNum = rs.getInt("accountNum");
-				//Account account;
 				if (accountType.equalsIgnoreCase("checking")) {
 					account = new Checking(accountNum, balance);
 				} else if (accountType.equalsIgnoreCase("savings")) {
@@ -43,7 +42,11 @@ public class AccountDAO implements DAOInterface{
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return account;
+		
+	}
+
+	public static void getAccount(String userName, String passWord, String phoneNum, Account accountNum) {
+		// TODO Auto-generated method stub
 		
 	}
 	

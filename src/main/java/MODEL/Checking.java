@@ -1,5 +1,7 @@
 package MODEL;
 
+import DAO.AccountDAO;
+
 public class Checking extends Account{
 	private static String accountType = "Checking";
 	

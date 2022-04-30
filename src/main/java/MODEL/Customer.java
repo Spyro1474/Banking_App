@@ -11,8 +11,8 @@ public class Customer {
 	private Account accountNum;
 
 	public Customer(String userName, String passWord, String phoneNum, Account accountNum) {
-		AccountDAO.getAccount(userName);
 		
+		AccountDAO.getAccount(userName, passWord, phoneNum, accountNum);
 		
 		
 		this.userName = userName;

@@ -158,6 +158,10 @@ public class CustomerDAO implements DAOInterface{
 		} // end try-catch
 		return true;
 
+	}
+	public static void getAccountNum(int accountNum) {
+		// TODO Auto-generated method stub
+		
 	} 
 		
 }
