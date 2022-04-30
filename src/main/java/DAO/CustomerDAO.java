@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import MODEL.Customer;
-
 public class CustomerDAO implements DAOInterface{
 	
 	
@@ -45,6 +43,24 @@ public class CustomerDAO implements DAOInterface{
 			e.printStackTrace();
 		} 
 	}
+	public boolean checkValidAccountNum(String userName) {
+		boolean success = false;
+		try {
+			String query = "SELECT accountNum FROM bank WHERE bank.username = ?";
+			PreparedStatement st = ConnectionManager.getConnection()
+					.prepareStatement(query);
+			
+			st.setString(1, userName);
+			
+			st.executeUpdate();
+			success = true;
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} // end try-catch
+		return success;
+	} 
 		
 	public boolean checkValidLogin(String userName, String passWord) {
 		try {
@@ -94,18 +110,48 @@ public class CustomerDAO implements DAOInterface{
 	
 	
 
-	public void delete(Customer customer) {
-		// TODO Auto-generated method stub
+	public boolean deleteAccount(String userName) {
+		try {
+			String delete = "SELECT * FROM users FULL JOIN bank ON " +
+		"users.username = bank.username WHERE users.username = ?;";
+			
+			PreparedStatement st = ConnectionManager.getConnection()
+													.prepareStatement(delete);
+			st.setString(1, userName);
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()) {
+				return false;
+			} // end if
+			
+			return false;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} // end try-catch
+		return false;
 		
-	}
+		
+	} // end delete()
+		
 
-	public void update(Customer customer) {
-		// TODO Auto-generated method stub
+	public boolean updateAccount(int accountNum, double balance) {
+		boolean success = false;
+		try {
+			String update = "UPDATE bank SET balance = ? WHERE accountnum = ?;";
+			PreparedStatement st = ConnectionManager.getConnection()
+					.prepareStatement(update);
+			
+			st.setDouble(1, balance);
+			st.setInt(2, accountNum);
+			st.executeUpdate();
+			success = true;
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} // end try-catch
 		
-	}
-
-	public void signup(Customer customer) {
-		// TODO Auto-generated method stub
+		return success;
+	} 
 		
-	}
 }

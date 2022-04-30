@@ -6,7 +6,7 @@ public class Account {
 	private int accountNumber;
 	private static int numberOfAccounts = 1;
 	
-	Account() {
+	public Account() {
 		accountNumber = numberOfAccounts++;
 	}
 	

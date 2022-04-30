@@ -10,8 +10,8 @@ import MODEL.Savings;
 
 public abstract class AccountDAO implements DAOInterface{
 	
-	AccountDAO getAccount(String userName) {
-		AccountDAO customer = null;
+	Account getAccount(String userName) {
+		Account account = new Account();
 		try {
 			String ac = "SELECT * FROM users FULL JOIN bank ON " + 
 		"users.username = bank.username WHERE users.username = ?;";
@@ -42,7 +42,7 @@ public abstract class AccountDAO implements DAOInterface{
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return customer;
+		return account;
 		
 	}
 	
