@@ -11,3 +11,20 @@
 2022-05-01 13:08:00.090 [main] INFO  MODEL.Driver - user created an account
 2022-05-01 13:08:03.983 [main] INFO  MODEL.Driver - user withdrew from their account
 2022-05-01 13:08:12.291 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:08:39.723 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:08:43.365 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:12:16.369 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:12:23.990 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:12:41.308 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:14:14.717 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:14:20.335 [main] INFO  MODEL.Driver - user did not have enough funds
+2022-05-01 13:14:20.335 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:15:28.058 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:15:33.650 [main] INFO  MODEL.Driver - user did not have enough funds
+2022-05-01 13:15:41.478 [main] INFO  MODEL.Driver - user did not have enough funds
+2022-05-01 13:15:50.578 [main] INFO  MODEL.Driver - user did not have enough funds
+2022-05-01 13:15:57.929 [main] INFO  MODEL.Driver - user did not have enough funds
+2022-05-01 13:16:04.832 [main] INFO  MODEL.Driver - user did not have enough funds
+2022-05-01 13:16:13.372 [main] INFO  MODEL.Driver - user deposited into their account
+2022-05-01 13:16:20.797 [main] INFO  MODEL.Driver - user deposited into their account
+2022-05-01 13:16:26.702 [main] INFO  MODEL.Driver - user withdrew from their account

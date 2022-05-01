@@ -113,7 +113,7 @@ public class Driver {
 			balance = 0;
 		} 
 		bank.getCustomer(accountNum).getAccount().withdraw(balance);
-		logger.info("user withdrew from their account");
+		
 		
 		}
 	}

@@ -1,9 +1,14 @@
 package MODEL;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import DAO.AccountDAO;
 import DAO.CustomerDAO;
 
 public class Account {
+	
+	private static final Logger logger = LogManager.getLogger(Driver.class);
 	
 	CustomerDAO customerDAO = new CustomerDAO();
 	
@@ -42,19 +47,20 @@ public class Account {
 			balance -= amount;
 			if (balance < 0) {
 				System.out.println("you do not have enough funds");
+				logger.info("user did not have enough funds");
+
 				break;
 		} else {
 			System.out.println("you have withdrawn " + amount + " dollars");
 			System.out.println("you now have a balance of " + balance);
 			CustomerDAO customerDAO = new CustomerDAO();
 			customerDAO.updateAccount(balance, accountNum);
+			logger.info("user withdrew from their account");
 			valid = true;
 		}
-			
 		} catch (Exception e) {
 		}
 		}
-		
 	}
 	public void deposit(double amount) {
 		balance += amount;
