@@ -9,8 +9,8 @@ public class ConnectionManager {
 	//lowercase connection is the NAME; Connection with capital C is what it is AKA the datatype
 	private static Connection connection;
 	
-	private static String connectionString = "",
-			username = "",
+	private static String connectionString = "jdbc:postgresql://salt.db.elephantsql.com:5432/hivhwnvw",
+			username = "hivhwnvw",
 			password = "";
 	
 	

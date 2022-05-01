@@ -39,3 +39,4 @@
 2022-05-01 13:25:25.046 [main] INFO  MODEL.Driver - user withdrew from their account
 2022-05-01 13:25:37.459 [main] INFO  MODEL.Driver - user did not have enough funds
 2022-05-01 14:23:36.116 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED
+2022-05-01 14:27:16.433 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED
