@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CustomerDAO implements DAOInterface{
+
 	
 	
 	public static void createAnAccount(String userName, String passWord, String phoneNum, String accountType, boolean employee, double initialDeposit) {
@@ -41,29 +42,33 @@ public class CustomerDAO implements DAOInterface{
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
-		} 
+		}
 	}
-	public static void getAccountNum(String userName) {
+	
+	public static int getAccountNum(String userName) {
+		int accountNum = 0;
+		//accountNum = rs.getInt("accountnum");
 		
 		try {
-			String query = "SELECT accountNum FROM bank WHERE bank.username = ?";
+			String query = "SELECT accountNum FROM bank WHERE username = ?;";
 			PreparedStatement st = ConnectionManager.getConnection()
-					.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+					.prepareStatement(query);
 			
 			st.setString(1, userName);
-			
 			st.executeQuery();
 			
-			ResultSet rs = st.getGeneratedKeys();
+			ResultSet rs = st.executeQuery();
+			
 			if(rs.next()) {
-				
+				accountNum = rs.getInt("accountnum");	
 			}
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
-		}
+		} return accountNum;
 		
-	} 
+		 
+	}
 		
 	public boolean checkValidLogin(String userName, String passWord) {
 		try {
@@ -160,10 +165,11 @@ public class CustomerDAO implements DAOInterface{
 		return true;
 
 	}
-	public static void getAccountNum(int accountNum) {
+	//public static void getAccountNum(int accountNum) {
 		// TODO Auto-generated method stub
 		
-	} 
+
 		
 }
+
 

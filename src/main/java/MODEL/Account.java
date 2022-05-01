@@ -5,12 +5,20 @@ import DAO.CustomerDAO;
 
 public class Account {
 	
-	private Double balance;
-	private int accountNum;
-	private static int numberOfAccounts = 1;
+	CustomerDAO customerDAO = new CustomerDAO();
+	
+	public String userName = "";
+	public Double balance;
+	public int accountNum;
+	//public int accountNum = CustomerDAO.getAccountNum(userName);
+	public static int numberOfAccounts = 1;
 	
 	public Account() {
+		
 		accountNum = numberOfAccounts++;
+		//accountNum = CustomerDAO.getAccountNum(userName);
+		
+		
 	}
 	
 	public Double getBalance() {
@@ -20,7 +28,7 @@ public class Account {
 		this.balance = balance;
 	}
 	public int getAccountNumber() {
-		CustomerDAO.getAccountNum(accountNum);
+		CustomerDAO.getAccountNum(userName);
 		return accountNum;
 	}
 	public static int getNumberOfAccounts() {
