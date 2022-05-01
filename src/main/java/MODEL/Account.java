@@ -46,9 +46,9 @@ public class Account {
 		try {
 			balance -= amount;
 			if (balance < 0) {
+				balance += amount;
 				System.out.println("you do not have enough funds");
 				logger.info("user did not have enough funds");
-
 				break;
 		} else {
 			System.out.println("you have withdrawn " + amount + " dollars");
