@@ -1,0 +1,13 @@
+2022-05-01 12:58:43.063 [main] INFO  MODEL.Driver - DATABASE HAS BEEN DROPPED AND RE-INITIALIZED
+2022-05-01 12:58:55.568 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 12:59:04.327 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:01:53.736 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:01:59.859 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:03:46.484 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:03:51.623 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:04:17.105 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:04:21.511 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:07:03.880 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:08:00.090 [main] INFO  MODEL.Driver - user created an account
+2022-05-01 13:08:03.983 [main] INFO  MODEL.Driver - user withdrew from their account
+2022-05-01 13:08:12.291 [main] INFO  MODEL.Driver - user withdrew from their account

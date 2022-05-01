@@ -36,11 +36,25 @@ public class Account {
 	}
 	
 	public void withdraw(double amount) {
-		balance -= amount;
-		System.out.println("you have withdrawn " + amount + " dollars");
-		System.out.println("you now have a balance of " + balance);
-		CustomerDAO customerDAO = new CustomerDAO();
-		customerDAO.updateAccount(balance, accountNum);
+		boolean valid = false;
+		while (!valid) {
+		try {
+			balance -= amount;
+			if (balance < 0) {
+				System.out.println("you do not have enough funds");
+				break;
+		} else {
+			System.out.println("you have withdrawn " + amount + " dollars");
+			System.out.println("you now have a balance of " + balance);
+			CustomerDAO customerDAO = new CustomerDAO();
+			customerDAO.updateAccount(balance, accountNum);
+			valid = true;
+		}
+			
+		} catch (Exception e) {
+		}
+		}
+		
 	}
 	public void deposit(double amount) {
 		balance += amount;
