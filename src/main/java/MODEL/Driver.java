@@ -166,13 +166,16 @@ public class Driver {
 			System.out.println("Are You An Employee true/false");
 			employee = scan.nextBoolean();
 			if (employee == true) {
-				System.out.println("you are an employee");
-			} else {
-				System.out.println("you are NOT an employee");
-				}  
+				System.out.println("you ARE An Employee");
+				valid = true;
+			} if (employee == false) {
+				System.out.println("you Are NOT An Employee");
+				valid = true;
+				}
 				} catch (Exception e) {
 					e.printStackTrace();
-			valid = true;
+					System.out.println("INVALID INPUT");
+				}
 			}
 			valid = false;
 			while(!valid) {
@@ -225,7 +228,7 @@ public class Driver {
 		Customer customer = new Customer(userName, passWord, phoneNum, account);
 		bank.addCustomer(customer);
 		logger.info("user created an account");
-	}
+	
 	}
 	private int getInput() {
 		int choice = -1;
