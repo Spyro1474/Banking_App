@@ -11,7 +11,7 @@ public class ConnectionManager {
 	
 	private static String connectionString = "jdbc:postgresql://salt.db.elephantsql.com:5432/hivhwnvw",
 			username = "hivhwnvw",
-			password = "";
+			password = "6QZPu6IuAuPpR7d3kdFUP-jYpiooTePm";
 	
 	
 	public static Connection getConnection() {
